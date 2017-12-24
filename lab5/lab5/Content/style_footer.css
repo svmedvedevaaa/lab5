@@ -1,0 +1,15 @@
+footer
+{
+    margin: 0;
+    float: bottom;
+    background: rgba(189, 183, 107, 0.6);
+    left: 0;
+    bottom: 0;
+}
+footer>p
+{
+    font-size: 25px;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 7px;
+}

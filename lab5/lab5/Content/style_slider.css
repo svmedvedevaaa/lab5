@@ -1,0 +1,96 @@
+.wrapper
+{    
+    padding-top: 120px;
+    height: 410px;
+    position: relative;
+    width: 900px;
+    margin: auto;
+    
+}
+.slider 
+{
+    background-color: #ddd;
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+    width: inherit;
+    float: right;
+}
+.wrapper > input
+{ 
+    display: none;
+}
+.slide1
+{
+    background-size: 100%;
+    background-image: url(sl1.jpg);
+    display: block;
+    max-width: 100%;
+}
+.slide2 
+{ 
+    background-size: 100%;
+    background-image: url(sl2.jpg); 
+    display: block;
+    max-width: 100%;
+}
+.slide3 
+{ 
+    background-size: 100%;
+    background-image: url(sl3.jpg); 
+    display: block;
+    max-width: 100%;
+}
+.wrapper .controls 
+{
+    left: 45%;
+    bottom: -4%;
+    position: absolute;
+}
+.wrapper label:after
+{
+    border: 2px solid #ddd;
+    content: " ";
+    display: block;
+    height: 12px;
+    left: -4px;
+    position: absolute;
+    top: -4px;
+    width: 12px;
+    border-radius: 50%;
+}
+.wrapper label
+{
+	cursor: pointer;
+	display: inline-block;
+	height: 8px;
+	margin: 25px 12px 0 16px;
+	position: relative;
+	width: 8px;	
+	border-radius: 50%;	
+	transition: background ease-in-out .5s;
+}
+.wrapper label:hover, /*стиль элемента при наведении на него курсора мыши(при выборе слайдов переключатель окрашивается в цвет)*/
+#slide1:checked ~ .controls label:nth-of-type(1),/**/
+#slide2:checked ~ .controls label:nth-of-type(2),
+#slide3:checked ~ .controls label:nth-of-type(3)
+{
+	background: #ddd;
+}
+.slides 
+{
+	height: inherit;
+	opacity: 0;
+	position: absolute;
+	width: inherit;
+	z-index: 0;
+	transform: scale(1.5);
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+#slide1:checked ~ .slider > .slide1, /*в зависимости от активной кнопки навигации, в окне слайдера появляется необходимый слайд*/
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3
+{
+	opacity: 1;
+	transform: scale(1);
+}

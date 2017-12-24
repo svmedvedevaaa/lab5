@@ -1,0 +1,113 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Фотограф</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/Content/style_main.css">
+    <link rel="stylesheet" href="~/Content/style_nav.css">
+    <link rel="stylesheet" href="~/Content/style_slider.css">
+    <link rel="stylesheet" href="~/Content/style_table.css">
+    <link rel="stylesheet" href="~/Content/style_headers.css">
+    <link rel="stylesheet" href="~/Content/style_quote.css">
+    <link rel="stylesheet" href="~/Content/style_feedback.css">
+    <link rel="stylesheet" href="~/Content/style_contacts.css">
+    <link rel="stylesheet" href="~/Content/style_footer.css">
+</head>
+<body>
+    <header>
+        <h1>Professional photographer</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#main">Главная</a></li>
+            <li><a href="#price">Прайс-лист</a></li>
+            <li><a href="#feedback">Обратная связь</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+    <section id="main">
+        <blockquote>«Для меня фотография – это искусство наблюдения. Речь идет о поиске чего-то интересного в обычном месте ... Я обнаружил, что это имеет мало общего с тем, что вы видите, и со всем, что связано с тем, как вы видите»,- Эллиот Эрвитт.</blockquote>
+        <div class="wrapper">
+            <input type="radio" name="point" id="slide1" checked>
+            <input type="radio" name="point" id="slide2">
+            <input type="radio" name="point" id="slide3">
+            <div class="slider">
+                <div class="slides slide1"></div>
+                <div class="slides slide2"></div>
+                <div class="slides slide3"></div>
+            </div>
+            <div class="controls">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+            </div>
+        </div>
+    </section>
+    <section id="price">
+        <table class="price_table">
+            @using lab5.Models.Helper
+            @PhotoTableHelper.GetPhotoTable()
+        </table>
+    </section>
+    <section id="feedback">
+        <hr>
+        <h3>Напишите мне...</h3>
+        @using (Ajax.BeginForm("InsertFeedback", new AjaxOptions { UpdateTargetId = "results" }))
+        {
+            @*<form id="form_feedback" action="http://localhost:50327/Base/InsertFeedback" name="uploader" enctype="multipart/form-data" method="POST">*@
+            <p><label for="form_name">Ваше имя: </label></p>
+            <p><input type="text" id="form_name" name="Name" required></p>
+            <p><label for="form_email">E-mail: </label></p>
+            <p><input type="email" id="form_email" name="Email"></p>
+            <p><label for="form_ph">Телефон: </label></p>
+            <p><input type="tel" id="form_ph" name="Phone" required></p>
+            <p><label for="form_text">Сообщение: </label></p>
+            <p><textarea id="form_text" name="Message"></textarea></p>
+            <p>
+                <input type="submit" value="Отправить" id="form_submit">
+            </p>
+            @*</form>*@
+        }
+        <div id="results"></div>
+    </section>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+    @*<script>
+            $("form[name='uploader']").submit(
+                    function(e)
+            {
+                var formData = new FormData($(this)[0]);
+                $.ajax({
+                    url: 'http://localhost:81/labPHP/feedback',
+                    type: "POST",
+                    data: formData,
+                    async: false,
+                    success: function (msg) {
+                        alert('Ваше сообщение отправлено!');
+                    },
+                    error: function(msg) {
+                        alert('Ошибка!');
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                    });
+                e.preventDefault();
+            });
+    </script>*@
+    <section id="contact">
+        <p><h3>Контакты</h3></p>
+        <p class="contact">
+            <img src="~/Content/phone.png" height="50" alt="phone"> 8(495)867-23-01
+            <img src="~/Content/mail.png" height="50" alt="email"> phphoto@mail.ru
+        </p>
+    </section>
+    <footer>
+        <p>Copyright © 2017 Professional photographer</p>
+    </footer>
+</body>
+</html>

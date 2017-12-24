@@ -1,0 +1,14 @@
+body
+{
+    background-image: url(fon.jpg);
+    background-size: 100%;
+    min-width: 450px;
+    margin: 0;
+    padding: 0;
+}
+#main
+{
+    position: relative;
+    top: 100px;
+    display: inline;
+}

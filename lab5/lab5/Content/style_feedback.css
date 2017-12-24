@@ -1,0 +1,38 @@
+#feedback
+{
+    width: 50%;
+    height: 50%;
+    margin:auto;
+    background: rgba(211, 211, 211, 0.5);
+}
+#form0 >p
+{    
+    margin: 0;
+    margin-left: 2%;
+    text-align: left;
+    font-family: Keffeesatz, Arial; 
+    font-size: 25px;
+}
+#form_name, #form_email, #form_ph
+{
+    width: 95%;
+    height: 20px;
+}
+#form_text
+{
+    width: 95%;
+    height: 250px;
+    font-size: 25px;
+    resize: none;
+}
+#form_submit
+{
+    width: 120px;
+    font-size: 20px;
+}
+#form_file
+{
+    width: 400px;
+    font-size: 20px;
+    position: right;
+}

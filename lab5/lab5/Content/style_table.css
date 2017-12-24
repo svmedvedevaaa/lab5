@@ -1,0 +1,29 @@
+#price
+{
+    height: 80%;
+    width: 90%;
+    margin: auto;
+}
+.price_table
+{
+    margin:auto;
+    margin-top: 150px;
+    margin-bottom: 50px; 
+    font-size: 22px;
+    border-collapse: separate;
+    text-align: center;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    border-collapse: collapse;
+    color: #686461;
+    color: black;
+}
+td:nth-child(even)/*четные столбцы*/
+{
+    padding: 10px;
+    background: rgba(230, 230, 250,0.8);
+}
+td:nth-child(odd) /*нечетные столбцы*/
+{
+    padding: 10px;
+    background: rgba(220, 220, 220,0.7);
+}
